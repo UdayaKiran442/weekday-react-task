@@ -1,14 +1,22 @@
 import styles from "../styles/JobExperience.module.css";
 
 type Props = {
-  experience: string;
+  minExp: string;
+  maxExp: string;
 };
 
-const JobExperience = ({ experience }: Props) => {
+const JobExperience = ({ minExp, maxExp }: Props) => {
   return (
     <div>
-      <p className={styles.text}>Minimum Experience</p>
-      <p className={styles.experience}>{experience}</p>
+      {minExp && maxExp && (
+        <p className={styles.text}>
+          Experience &nbsp;
+          {minExp && <span className={styles.text}>{minExp}</span>}
+          {minExp && maxExp && <span>&nbsp;-&nbsp;</span>}
+          {maxExp && <span className={styles.text}>{maxExp} </span>}
+          years{" "}
+        </p>
+      )}
     </div>
   );
 };
