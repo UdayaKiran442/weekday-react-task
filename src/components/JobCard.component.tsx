@@ -19,6 +19,7 @@ const JobCard = () => {
       </div>
       <div>
         {/* company details */}
+        {/* biome-ignore lint/a11y/useValidAriaRole: <explanation> */}
         <JobDetails
           logo={logo}
           company="Ema"
