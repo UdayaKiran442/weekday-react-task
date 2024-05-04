@@ -1,7 +1,9 @@
+import JobCard from "./components/JobCard.component";
+
 function App() {
   return (
     <>
-      <div>Hi</div>
+      <JobCard />
     </>
   );
 }
