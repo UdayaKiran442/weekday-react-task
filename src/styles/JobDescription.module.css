@@ -1,15 +1,9 @@
-.aboutCompany {
+.heading {
   font-size: 1rem;
   font-weight: 600;
 }
 
-.aboutUs {
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-top: -10px;
-}
-
-.companyDescription {
+.jobDescription {
   font-size: 0.875rem;
   font-weight: 400;
   margin-top: -10px;

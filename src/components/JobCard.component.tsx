@@ -1,7 +1,7 @@
 import JobHeader from "./JobHeader.component";
 import JobDetails from "./JobDetails.component";
 import JobSalary from "./JobSalary.component";
-import AboutCompany from "./AboutCompany.component";
+import JobDescription from "./JobDescription.component";
 import JobExperience from "./JobExperience.component";
 import Button from "./Button.component";
 
@@ -33,7 +33,7 @@ const JobCard = () => {
       </div>
       <div>
         {/* about company */}
-        <AboutCompany />
+        <JobDescription description="cwdcwdcwd" />
       </div>
       <div>
         {/* experience */}

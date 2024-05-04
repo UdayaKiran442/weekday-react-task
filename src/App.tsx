@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     const fetchJobs = async () => {
       const apiResponse = await fetchJobsApi();
-      console.log(apiResponse.jdList);
       dispatch(loadJobs(apiResponse.jdList));
     };
     fetchJobs();
