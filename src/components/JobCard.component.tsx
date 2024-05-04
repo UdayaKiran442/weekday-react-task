@@ -1,14 +1,18 @@
 import JobHeader from "./JobHeader.component";
 import JobDetails from "./JobDetails.component";
+import JobSalary from "./JobSalary.component";
+import AboutCompany from "./AboutCompany.component";
+import JobExperience from "./JobExperience.component";
+import Button from "./Button.component";
 
 import sand_clock from "../assets/sand_clock.jpeg";
 import logo from "../assets/dummy_logo.png";
-import JobSalary from "./JobSalary.component";
-import AboutCompany from "./AboutCompany.component";
+
+import styles from "../styles/JobCard.module.css";
 
 const JobCard = () => {
   return (
-    <div>
+    <div className={styles.jobCard}>
       <div>
         {/* job header */}
         <JobHeader image={sand_clock} text="Posted a day ago" />
@@ -30,8 +34,14 @@ const JobCard = () => {
         {/* about company */}
         <AboutCompany />
       </div>
-      <div>{/* experience */}</div>
-      <div>{/* buttons */}</div>
+      <div>
+        {/* experience */}
+        <JobExperience experience="7 years" />
+      </div>
+      <div>
+        {/* buttons */}
+        <Button value="Easy Apply" />
+      </div>
     </div>
   );
 };

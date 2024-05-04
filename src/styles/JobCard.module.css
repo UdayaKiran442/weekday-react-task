@@ -1,0 +1,7 @@
+.jobCard {
+  border: 1px solid #f3f3f3;
+  width: fit-content;
+  border-radius: 1rem;
+  padding: 0.875rem;
+  box-shadow: 0.1rem 0.25rem #f3f3f3;
+}
