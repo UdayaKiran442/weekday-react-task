@@ -4,6 +4,7 @@ import JobDetails from "./JobDetails.component";
 import sand_clock from "../assets/sand_clock.jpeg";
 import logo from "../assets/dummy_logo.png";
 import JobSalary from "./JobSalary.component";
+import AboutCompany from "./AboutCompany.component";
 
 const JobCard = () => {
   return (
@@ -25,7 +26,10 @@ const JobCard = () => {
         {/* salary */}
         <JobSalary salary="₹20 - 30 LPA" />
       </div>
-      <div>{/* about company */}</div>
+      <div>
+        {/* about company */}
+        <AboutCompany />
+      </div>
       <div>{/* experience */}</div>
       <div>{/* buttons */}</div>
     </div>
