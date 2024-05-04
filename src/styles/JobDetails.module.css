@@ -1,10 +1,11 @@
 .jobDetails {
   display: flex;
+  gap: 5px;
 }
 
 .companyLogo img {
   width: 50px;
-  height: 100px;
+  height: 80px;
 }
 
 .companyName {
