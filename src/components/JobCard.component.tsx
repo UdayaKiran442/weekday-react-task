@@ -3,6 +3,7 @@ import JobDetails from "./JobDetails.component";
 
 import sand_clock from "../assets/sand_clock.jpeg";
 import logo from "../assets/dummy_logo.png";
+import JobSalary from "./JobSalary.component";
 
 const JobCard = () => {
   return (
@@ -20,7 +21,10 @@ const JobCard = () => {
           role="Software Development Engineer"
         />
       </div>
-      <div>{/* salary */}</div>
+      <div>
+        {/* salary */}
+        <JobSalary salary="₹20 - 30 LPA" />
+      </div>
       <div>{/* about company */}</div>
       <div>{/* experience */}</div>
       <div>{/* buttons */}</div>
