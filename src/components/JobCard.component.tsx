@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import JobHeader from "./JobHeader.component";
 import JobDetails from "./JobDetails.component";
 import JobSalary from "./JobSalary.component";
@@ -10,7 +12,11 @@ import logo from "../assets/dummy_logo.png";
 
 import styles from "../styles/JobCard.module.css";
 
+import { selectJobs } from "../redux/jobsReducer";
+
 const JobCard = () => {
+  const jobs = useSelector(selectJobs);
+
   return (
     <div className={styles.jobCard}>
       <div>

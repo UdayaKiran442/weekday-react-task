@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { RootState } from "./store";
+
 interface InitialState {
   jobs: [];
 }
@@ -19,4 +21,5 @@ export const jobsReducer = createSlice({
 });
 
 export const { loadJobs } = jobsReducer.actions;
+export const selectJobs = (state: RootState) => state.jobs.jobs;
 export default jobsReducer.reducer;
