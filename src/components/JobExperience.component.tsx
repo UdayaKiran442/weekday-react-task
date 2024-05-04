@@ -1,8 +1,8 @@
 import styles from "../styles/JobExperience.module.css";
 
 type Props = {
-  minExp: number;
-  maxExp: number;
+  minExp: string;
+  maxExp: string;
 };
 
 const JobExperience = ({ minExp, maxExp }: Props) => {

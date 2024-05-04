@@ -23,8 +23,8 @@ interface Job {
   minJdSalary: number;
   salaryCurrencyCode: string;
   location: string;
-  minExp: number;
-  maxExp: number;
+  minExp: string;
+  maxExp: string;
   jobRole: string;
   companyName: string;
   logoUrl: string;
@@ -39,7 +39,11 @@ const JobCard = () => {
   const jobs = useSelector(selectJobs);
 
   const [roles, setRoles] = useState<string[]>();
+  const [experiences, setExperiences] = useState<string[]>([]);
+
   const [filteredRoles, setFilteredRoles] = useState<string[]>([]);
+  const [filteredExperiences, setFilteredExperiences] = useState<string[]>([]);
+
   const [data, setData] = useState<Array<Job>>([]);
 
   useLayoutEffect(() => {
@@ -50,6 +54,15 @@ const JobCard = () => {
     });
     const uniqueRolesArray = Array.from(rolesSet);
     setRoles(uniqueRolesArray);
+    // Experiences set
+    const experiencesSet = new Set<string>();
+    jobs.forEach((job: Job) => {
+      {
+        job.minExp && experiencesSet.add(job.minExp);
+      }
+    });
+    const uniqueExperiencesArray = Array.from(experiencesSet);
+    setExperiences(uniqueExperiencesArray);
 
     let filteredData: Array<Job> = jobs;
 
@@ -58,8 +71,15 @@ const JobCard = () => {
         filteredRoles.includes(job.jobRole)
       );
     }
+
+    if (filteredExperiences.length > 0) {
+      filteredData = filteredData.filter((job: Job) =>
+        filteredExperiences.some((exp) => parseInt(job.minExp) >= parseInt(exp))
+      );
+    }
+
     setData(filteredData);
-  }, [jobs, filteredRoles]);
+  }, [jobs, filteredRoles, filteredExperiences]);
 
   return (
     <>
@@ -69,6 +89,12 @@ const JobCard = () => {
           names={roles}
           category={filteredRoles}
           setCategory={setFilteredRoles}
+        />
+        <FilterInput
+          placeholder="Minimum Experience"
+          names={experiences}
+          category={filteredExperiences}
+          setCategory={setFilteredExperiences}
         />
       </div>
       <div className={styles.jobsCard}>
