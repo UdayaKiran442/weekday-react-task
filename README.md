@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# React Developer role interview task
+- Udaya Kiran Gonuguntla
+- gudaya2002@gmail.com
+- 9160891919
 
 ## Install necessary packages
 
