@@ -1,5 +1,6 @@
 import styles from "../styles/JobSalary.module.css";
 
+// props type
 type Props = {
   minJdSalary: number | null;
   maxJdSalary: number | null;
@@ -11,6 +12,7 @@ const JobSalary = ({ maxJdSalary, minJdSalary, salaryCurrencyCode }: Props) => {
     <div>
       <p className={styles.jobSalary}>
         Estimated Salary: {`${salaryCurrencyCode}`} &nbsp;
+        {/* null value handing */}
         {minJdSalary && <span className={styles.jobSalary}>{minJdSalary}</span>}
         {minJdSalary && maxJdSalary && <span>&nbsp;-&nbsp;</span>}
         {maxJdSalary && (

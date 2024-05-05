@@ -1,5 +1,6 @@
 import styles from "../styles/JobDetails.module.css";
 
+// props type
 type Props = {
   logo: string;
   company: string;

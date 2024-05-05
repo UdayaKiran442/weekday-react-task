@@ -1,9 +1,11 @@
 import styles from "../styles/Button.module.css";
 
+// props type
 type Props = {
   value: string;
 };
 
+// button component
 const Button = ({ value }: Props) => {
   return (
     <div>

@@ -10,8 +10,10 @@ import { loadJobs } from "./redux/jobsReducer";
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
+    // fetch api
     const fetchJobs = async () => {
       const apiResponse = await fetchJobsApi();
+      // store api result in redux
       dispatch(loadJobs(apiResponse.jdList));
     };
     fetchJobs();

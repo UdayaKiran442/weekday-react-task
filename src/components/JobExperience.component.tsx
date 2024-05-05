@@ -1,5 +1,6 @@
 import styles from "../styles/JobExperience.module.css";
 
+// props type
 type Props = {
   minExp: string;
   maxExp: string;
@@ -8,6 +9,7 @@ type Props = {
 const JobExperience = ({ minExp, maxExp }: Props) => {
   return (
     <div>
+      {/* null value handling */}
       {minExp && maxExp && (
         <p className={styles.text}>
           Experience &nbsp;

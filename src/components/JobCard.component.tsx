@@ -15,6 +15,7 @@ import styles from "../styles/JobCard.module.css";
 import { selectJobs } from "../redux/jobsReducer";
 import { useLayoutEffect, useState } from "react";
 
+// define type of each Job
 interface Job {
   jdUid: string;
   jdLink: string;
@@ -30,20 +31,19 @@ interface Job {
   logoUrl: string;
 }
 
-// interface LocationType {
-//   remote: string;
-//   "on-site": string;
-// }
-
 const JobCard = () => {
+  // fetch jobs from redux
   const jobs = useSelector(selectJobs);
 
+  // values to be selected to filter
   const [roles, setRoles] = useState<string[]>();
   const [experiences, setExperiences] = useState<string[]>([]);
 
+  // array of values to be filtered on
   const [filteredRoles, setFilteredRoles] = useState<string[]>([]);
   const [filteredExperiences, setFilteredExperiences] = useState<string[]>([]);
 
+  // final result to be displayed
   const [data, setData] = useState<Array<Job>>([]);
 
   useLayoutEffect(() => {
@@ -54,7 +54,8 @@ const JobCard = () => {
     });
     const uniqueRolesArray = Array.from(rolesSet);
     setRoles(uniqueRolesArray);
-    // Experiences set
+
+    // Extracting unique experiences form jobs array
     const experiencesSet = new Set<string>();
     jobs.forEach((job: Job) => {
       {
@@ -64,26 +65,31 @@ const JobCard = () => {
     const uniqueExperiencesArray = Array.from(experiencesSet);
     setExperiences(uniqueExperiencesArray);
 
+    // initialising filteredData array to jobs
     let filteredData: Array<Job> = jobs;
 
+    // filter data based on job roles
     if (filteredRoles.length > 0) {
       filteredData = filteredData.filter((job: Job) =>
         filteredRoles.includes(job.jobRole)
       );
     }
 
+    // filter data based on job experience
     if (filteredExperiences.length > 0) {
       filteredData = filteredData.filter((job: Job) =>
         filteredExperiences.some((exp) => parseInt(job.minExp) >= parseInt(exp))
       );
     }
 
+    // set the filtered data
     setData(filteredData);
   }, [jobs, filteredRoles, filteredExperiences]);
 
   return (
     <>
       <div>
+        {/* select options */}
         <FilterInput
           placeholder="Roles"
           names={roles}
@@ -97,6 +103,7 @@ const JobCard = () => {
           setCategory={setFilteredExperiences}
         />
       </div>
+      {/* job cards */}
       <div className={styles.jobsCard}>
         {data.map((job: Job) => (
           <div key={job.jdUid} className={styles.jobCard}>
